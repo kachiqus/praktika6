@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Wonders | Блог о космосе</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Базовые стили для красоты */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0b0b2b 0%, #1a1a3a 100%);
+            color: #e0e0ff;
+            line-height: 1.6;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            padding: 40px 0 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .rocket-icon {
+            width: 100px;
+            height: auto;
+            filter: drop-shadow(0 0 15px #ffaa00);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin: 20px 0 10px;
+            background: linear-gradient(45deg, #fff, #ffaa00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(255, 170, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: #a0a0ff;
+            letter-spacing: 2px;
+        }
+
+        .intro {
+            font-size: 1.2em;
+            margin: 40px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .cosmic-card {
+            background: rgba(20, 20, 50, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 30px 20px;
+            width: 350px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .cosmic-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: #ffaa00;
+            box-shadow: 0 20px 40px rgba(255, 170, 0, 0.3);
+        }
+
+        .cosmic-card img {
+            width: 100%;
+            max-width: 280px;
+            height: auto;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border: 3px solid rgba(255, 215, 0, 0.3);
+            transition: all 0.3s;
+        }
+
+        .cosmic-card:hover img {
+            border-color: #ffaa00;
+        }
+
+        .cosmic-card h2 {
+            font-size: 2em;
+            margin: 15px 0;
+            color: #ffaa00;
+            text-shadow: 0 0 10px rgba(255, 170, 0, 0.5);
+        }
+
+        .info-item {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        .info-item b {
+            color: #fff;
+        }
+
+        .fun-fact {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            font-style: italic;
+            border-left: 3px solid #ffaa00;
+        }
+
+        footer {
+            margin-top: 70px;
+            padding: 30px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #a0a0ff;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Звездный фон (анимированный) -->
+    <div class="stars" id="stars"></div>
+
+    <div class="container">
+        <header>
+            <!-- Здесь будет иконка ракеты (можно заменить на свою) -->
+            <svg class="rocket-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C12 2 16 6 16 10C16 13 13 16 10 16C7 16 4 13 4 10C4 6 8 2 8 2H12Z" fill="#FFAA00" stroke="#FF8800" stroke-width="1.5"/>
+                <path d="M12 9L15 12L12 15L9 12L12 9Z" fill="#FF5500"/>
+                <path d="M5 16L2 22L8 19L5 16Z" fill="#FFAA00" stroke="#FF8800" stroke-width="1.5"/>
+                <path d="M19 16L22 22L16 19L19 16Z" fill="#FFAA00" stroke="#FF8800" stroke-width="1.5"/>
+            </svg>
+            <h1>🌌 SPACE WONDERS</h1>
+            <div class="subtitle">- твой гид по бескрайнему космосу -</div>
+        </header>
+
+        <div class="intro">
+            <p>🚀 Добро пожаловать в блог о самых удивительных объектах Вселенной!<br>
+            Здесь мы рассказываем о планетах, звездах, туманностях и других космических чудесах.</p>
+        </div>
+
+        <!-- Карточки с объектами -->
+        <div class="card-container">
+            <!-- Сатурн -->
+            <div class="cosmic-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Saturn_during_Equinox.jpg/800px-Saturn_during_Equinox.jpg" alt="Saturn">
+                <h2>🪐 Сатурн</h2>
+                <div class="info-item"><b>Тип:</b> Газовая планета</div>
+                <div class="info-item"><b>Расстояние от Солнца:</b> 1.43 млрд км</div>
+                <div class="info-item"><b>Спутники:</b> 83 известных</div>
+                <div class="fun-fact">
+                    <b>✨ Интересный факт:</b> Кольца Сатурна состоят в основном из водяного льда и пыли. Некоторые частицы размером с песчинку, а другие — с дом!
+                </div>
+            </div>
+
+            <!-- Туманность Ориона -->
+            <div class="cosmic-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Orion_Nebula_-_Hubble_2006_mosaic_18000.jpg/800px-Orion_Nebula_-_Hubble_2006_mosaic_18000.jpg" alt="Orion Nebula">
+                <h2>🌠 Туманность Ориона</h2>
+                <div class="info-item"><b>Тип:</b> Эмиссионная туманность</div>
+                <div class="info-item"><b>Расстояние от Земли:</b> 1344 световых года</div>
+                <div class="info-item"><b>Размер:</b> 24 световых года</div>
+                <div class="fun-fact">
+                    <b>✨ Интересный факт:</b> Это самая яркая туманность на нашем небе. Её можно увидеть даже невооруженным глазом как размытую звезду в поясе Ориона.
+                </div>
+            </div>
+
+            <!-- Черная дыра (добавим для примера) -->
+            <div class="cosmic-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Black_hole_-_Messier_87_crop_max_res.jpg/800px-Black_hole_-_Messier_87_crop_max_res.jpg" alt="Black Hole">
+                <h2>⚫ Черная дыра M87*</h2>
+                <div class="info-item"><b>Тип:</b> Сверхмассивная черная дыра</div>
+                <div class="info-item"><b>Расстояние от Земли:</b> 55 млн световых лет</div>
+                <div class="info-item"><b>Масса:</b> 6.5 млрд масс Солнца</div>
+                <div class="fun-fact">
+                    <b>✨ Интересный факт:</b> Это первая черная дыра, которую удалось сфотографировать (2019 год). Диаметр ее тени — 38 млрд км!
+                </div>
+            </div>
+        </div>
+
+        <!-- Добавим секцию с галереей/ссылками -->
+        <div style="margin: 60px 0; padding: 30px; background: rgba(255,255,255,0.03); border-radius: 30px;">
+            <h2 style="color: #ffaa00; margin-bottom: 25px;">🚀 Хочешь узнать больше?</h2>
+            <p style="margin-bottom: 20px;">Подпишись на наши соцсети или читай новые статьи каждую неделю!</p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <span style="padding: 12px 25px; background: #ffaa00; color: #0b0b2b; border-radius: 50px; font-weight: bold; cursor: default;">Telegram</span>
+                <span style="padding: 12px 25px; background: #ffaa00; color: #0b0b2b; border-radius: 50px; font-weight: bold; cursor: default;">VK</span>
+                <span style="padding: 12px 25px; background: #ffaa00; color: #0b0b2b; border-radius: 50px; font-weight: bold; cursor: default;">YouTube</span>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2025 Space Wonders Blog | Сделано с ❤️ для космоса</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">Все изображения взяты из открытых источников (NASA, ESA)</p>
+        </footer>
+    </div>
+
+    <!-- Скрипт для создания звезд на фоне -->
+    <script>
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const starCount = 200;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                const size = Math.random() * 3 + 1;
+                star.style.width = size + 'px';
+                star.style.height = size + 'px';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                star.style.background = `rgb(255, 255, ${Math.floor(200 + Math.random() * 55)})`;
+                starsContainer.appendChild(star);
+            }
+        }
+        createStars();
+    </script>
+</body>
+</html>
